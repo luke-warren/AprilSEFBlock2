@@ -21,4 +21,37 @@ public class PatagoniaBackpack {
     public String getColor() {
         return this.color;
     }
+
+//    public static void setBrand(String brand) {
+//        PatagoniaBackpack.brand = brand;
+//    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getZippers() {
+        return zippers;
+    }
+
+    public void setZippers(int zippers) {
+        this.zippers = zippers;
+    }
+
+    public Integer getBuckles() {
+        return buckles;
+    }
+
+    public void setBuckles(Integer buckles) {
+        this.buckles = buckles;
+    }
+
+    @Override
+    public String toString() {
+        return "PatagoniaBackpack{" +
+                "color='" + color + '\'' +
+                ", zippers=" + zippers +
+                ", buckles=" + buckles +
+                '}';
+    }
 }
