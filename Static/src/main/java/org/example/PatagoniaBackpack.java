@@ -8,10 +8,31 @@ public class PatagoniaBackpack {
     private int zippers;
     private Integer buckles;
 
+    private String stateEmbroidery;
+
+    public PatagoniaBackpack(){
+        this.color = "tan";
+        this.zippers = 1;
+        this.buckles = 0;
+        this.stateEmbroidery = "";
+    }
+
     public PatagoniaBackpack(String color, int zippers, Integer buckles) {
         this.color = color;
         this.zippers = zippers;
         this.buckles = buckles;
+        this.stateEmbroidery = "";
+    }
+
+    public PatagoniaBackpack(String color, int zippers, Integer buckles, String stateEmbroidery) {
+        this.color = color;
+        this.zippers = zippers;
+        this.buckles = buckles;
+        this.stateEmbroidery = stateEmbroidery;
+    }
+
+    public void paintBackpack(String updatedColor){
+        this.setColor(updatedColor);
     }
 
     public static String getBrand(){
@@ -44,6 +65,14 @@ public class PatagoniaBackpack {
 
     public void setBuckles(Integer buckles) {
         this.buckles = buckles;
+    }
+
+    public String getStateEmbroidery() {
+        return stateEmbroidery;
+    }
+
+    public void setStateEmbroidery(String stateEmbroidery) {
+        this.stateEmbroidery = stateEmbroidery;
     }
 
     @Override
