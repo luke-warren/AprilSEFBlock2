@@ -11,11 +11,14 @@ public class Catalog {
     private HashMap<String, Double> itemToPriceMap;
     private HashMap<String, ArrayList<String>> profiles;
 
+    private HashMap<String, Item> inventory;
+
     public Catalog(String storeName){
         this.storeName = storeName;
         this.inventoryTotal = 0;
         this.itemToPriceMap = new HashMap<>();
         this.profiles = new HashMap<>();
+        this.inventory = new HashMap<>();
     }
 
     public Catalog(String storeName, int inventoryTotal, HashMap<String, Double> itemToPriceMap){
@@ -23,6 +26,15 @@ public class Catalog {
         this.inventoryTotal = inventoryTotal;
         this.itemToPriceMap = itemToPriceMap;
         this.profiles = new HashMap<>();
+        this.inventory = new HashMap<>();
+    }
+
+    public Catalog(String storeName, int inventoryTotal, HashMap<String, Double> itemToPriceMap, HashMap<String, ArrayList<String>> profiles, HashMap<String, Item> inventory) {
+        this.storeName = storeName;
+        this.inventoryTotal = inventoryTotal;
+        this.itemToPriceMap = itemToPriceMap;
+        this.profiles = profiles;
+        this.inventory = inventory;
     }
 
     public HashMap<String, Double> getItemToPriceMap(){
@@ -86,6 +98,20 @@ public class Catalog {
         ArrayList<String> profileList = this.profiles.get(key);
         profileList.add(profileName);
         this.profiles.put(key, profileList);
+    }
+
+    public boolean addNewInventoryItem(Item item){
+        if(!inventory.containsValue(item)){
+            inventory.put(item.getSerialNumber(), item);
+            return true;
+        }
+        return false;
+    }
+
+    public void updatePriceOfInventoryItem(String serialNumber, Double price){
+        Item item = inventory.remove(serialNumber);
+        item.setPrice(price);
+        inventory.put(serialNumber, item);
     }
 
 

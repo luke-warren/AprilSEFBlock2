@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -56,10 +57,69 @@ public class Main {
         itemsToPrice.put("Shovel", 15.0);
         itemsToPrice.put("Couch", 450.75);
 
+
+
+//        System.out.println(catalog.getMostExpensiveItem());
+//        System.out.println(catalog.getAllItemsBelowCertainAmount(31.0));
+
+
+        Dog dog = new Dog();
+        dog.age = 3;
+        dog.name = "Spot";
+
+        Dog sameDog = new Dog();
+        sameDog.age = 3;
+        sameDog.name = "Spot";
+
+
+//        System.out.println(dog);
+//        System.out.println(sameDog);
+//        System.out.println(dog == sameDog);
+//        System.out.println(dog.equals(catalog));
+
         Catalog catalog = new Catalog("Walmart", itemsToPrice.size(), itemsToPrice);
 
-        System.out.println(catalog.getMostExpensiveItem());
-        System.out.println(catalog.getAllItemsBelowCertainAmount(31.0));
+        Item pillows = new Item("Pillows", 20.0, "ABCD1");
+        Item cups = new Item("cups", 50.0, "CUPS2");
+        Item grails = new Item("GRAIL", 1000.0, "XYZ3");
+
+        catalog.addNewInventoryItem(pillows);
+        catalog.addNewInventoryItem(cups);
+        catalog.addNewInventoryItem(grails);
+
+        Item pillowsA  = new Item("PillowsA", 200.0, "ABCD1");
+
+        System.out.println(catalog.addNewInventoryItem(pillowsA));
+
+        Scanner scanner = new Scanner(System.in);
+        boolean continueToAddItems = true;
+        while(continueToAddItems){
+            System.out.println("Item name?");
+            String name = scanner.nextLine();
+            System.out.println("Price?");
+            String price = scanner.nextLine();
+            System.out.println("Serial number?");
+            String serialNumber = scanner.nextLine();
+
+
+            Item item = new Item(name, Double.parseDouble(price), serialNumber);
+            boolean itemWasAdded = catalog.addNewInventoryItem(item);
+            if(itemWasAdded){
+                System.out.println("Added Item");
+            }
+
+            System.out.println("Add more items? (Enter Y/N)");
+            String reply = scanner.nextLine();
+            if(reply.equalsIgnoreCase("N")){
+                continueToAddItems = false;
+            }
+
+        }
+
+
+
+
+
 
 
 
