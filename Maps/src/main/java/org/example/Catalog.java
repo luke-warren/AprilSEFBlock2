@@ -114,25 +114,11 @@ public class Catalog {
         inventory.put(serialNumber, item);
     }
 
+    public HashMap<String, Item> getInventory() {
+        return inventory;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void setInventory(HashMap<String, Item> inventory) {
+        this.inventory = inventory;
+    }
 }

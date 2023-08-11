@@ -54,4 +54,13 @@ public class Item {
     public int hashCode() {
         return Objects.hash(name, serialNumber);
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", serialNumber='" + serialNumber + '\'' +
+                '}';
+    }
 }

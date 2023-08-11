@@ -115,6 +115,7 @@ public class Main {
             }
 
         }
+        System.out.println(catalog.getInventory());
 
 
 
